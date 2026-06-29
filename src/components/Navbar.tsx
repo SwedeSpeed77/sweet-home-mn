@@ -58,32 +58,20 @@ export default function Navbar() {
             className="flex items-center gap-3 group"
             aria-label="Sweet Home MN Cookie Co — scroll to top"
           >
-            {/* Circular logo badge cropped from screenshot */}
-            <div
+            {/* Logo badge */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/sweet home logo.png"
+              alt="Sweet Home MN Cookie Co. logo"
               style={{
                 width: 52,
                 height: 52,
-                borderRadius: "50%",
-                overflow: "hidden",
                 flexShrink: 0,
-                border: "1.5px solid rgba(200,136,26,0.35)",
-                boxShadow: "0 0 12px rgba(200,136,26,0.2)",
-                position: "relative",
+                borderRadius: "50%",
+                objectFit: "cover",
+                boxShadow: "0 0 14px rgba(200,136,26,0.25)",
               }}
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/sweet home logo.png"
-                alt="Sweet Home MN Cookie Co. logo"
-                style={{
-                  width: "226px",
-                  height: "auto",
-                  position: "absolute",
-                  left: "-85px",
-                  top: "-27px",
-                }}
-              />
-            </div>
+            />
             {/* Text beside logo */}
             <div className="flex flex-col items-start leading-none">
               <span

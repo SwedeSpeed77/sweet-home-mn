@@ -6,6 +6,7 @@ import WhereWhenSection from "@/components/WhereWhenSection";
 import AboutSection from "@/components/AboutSection";
 import CustomOrdersCTA from "@/components/CustomOrdersCTA";
 import Footer from "@/components/Footer";
+import FlannelBanner from "@/components/FlannelBanner";
 import DemoBar from "@/components/DemoBar";
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
       <Navbar />
       <main>
         <HeroSection />
+        <FlannelBanner />
         <AwardsStrip />
         <ProductsSection />
         <WhereWhenSection />
