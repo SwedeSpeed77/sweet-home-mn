@@ -42,7 +42,7 @@ export default function AmberParticles() {
         x:           Math.random() * canvas.width,
         y:           y ?? canvas.height + 20,
         vx:          (Math.random() - 0.5) * 0.5,
-        vy:          -(Math.random() * 0.9 + 0.3),
+        vy:          -(Math.random() * 2.2 + 1.0),
         size:        Math.random() * 14 + 10,
         alpha:       0,
         life:        0,
