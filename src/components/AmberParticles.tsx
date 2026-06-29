@@ -27,7 +27,7 @@ export default function AmberParticles() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    const COUNT = 55;
+    const COUNT = 28;
     const particles: Particle[] = [];
 
     const resize = () => {
@@ -43,7 +43,7 @@ export default function AmberParticles() {
         y:           y ?? canvas.height + 20,
         vx:          (Math.random() - 0.5) * 0.5,
         vy:          -(Math.random() * 3.2 + 1.8),
-        size:        Math.random() * 14 + 10,
+        size:        Math.random() * 18 + 16,
         alpha:       0,
         life:        0,
         maxLife,
