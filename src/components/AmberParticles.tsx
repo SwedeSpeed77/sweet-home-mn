@@ -60,7 +60,16 @@ export default function AmberParticles() {
       particles.push(p);
     }
 
-    const draw = () => {
+    let lastTime = 0;
+    const FPS = 30;
+    const INTERVAL = 1000 / FPS;
+
+    const draw = (timestamp: number) => {
+      if (timestamp - lastTime < INTERVAL) {
+        animRef.current = requestAnimationFrame(draw);
+        return;
+      }
+      lastTime = timestamp;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       for (let i = 0; i < particles.length; i++) {
@@ -96,7 +105,7 @@ export default function AmberParticles() {
       animRef.current = requestAnimationFrame(draw);
     };
 
-    animRef.current = requestAnimationFrame(draw);
+    animRef.current = requestAnimationFrame(draw as FrameRequestCallback);
     window.addEventListener("resize", resize);
 
     return () => {
