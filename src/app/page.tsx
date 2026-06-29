@@ -6,7 +6,6 @@ import WhereWhenSection from "@/components/WhereWhenSection";
 import AboutSection from "@/components/AboutSection";
 import CustomOrdersCTA from "@/components/CustomOrdersCTA";
 import Footer from "@/components/Footer";
-import ChatBot from "@/components/ChatBot";
 import DemoBar from "@/components/DemoBar";
 
 export default function Home() {
@@ -22,7 +21,6 @@ export default function Home() {
         <CustomOrdersCTA />
       </main>
       <Footer />
-      <ChatBot />
       <DemoBar />
     </>
   );
