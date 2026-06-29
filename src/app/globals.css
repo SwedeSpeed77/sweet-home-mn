@@ -1,0 +1,152 @@
+@import "tailwindcss";
+
+@theme {
+  /* Core palette — derived from the Sweet Home MN logo */
+  --color-espresso: #0A0503;   /* near-black, darker than original for depth */
+  --color-bark:     #1A0A04;   /* dark wood bark */
+  --color-ember:    #C8881A;   /* golden cookie amber — warmer than before */
+  --color-honey:    #E8A820;   /* honey gold — logo text highlight */
+  --color-cream:    #F0E2C0;   /* warm cream — logo text tone */
+  --color-pine:     #1B3C1A;   /* deep forest green — pine trees in logo */
+  --color-wood:     #5C2410;   /* rich wood ring on badge */
+  --color-cream-dim: rgba(240, 226, 192, 0.55);
+  --color-ember-dim: rgba(200, 136, 26, 0.15);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-serif: var(--font-playfair);
+  --font-sans: var(--font-inter);
+}
+
+:root {
+  --background: #0D0604;
+  --foreground: #F5ECD7;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #0D0604;
+}
+
+body {
+  background-color: #0D0604;
+  color: #F5ECD7;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Grain texture overlay — the soul of the rustic feel */
+body::after {
+  content: '';
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.032;
+  pointer-events: none;
+  z-index: 9000;
+  animation: grain 9s steps(10) infinite;
+  mix-blend-mode: overlay;
+  will-change: transform;
+}
+
+@keyframes grain {
+  0%,
+  100% { transform: translate(0, 0); }
+  10%  { transform: translate(-5%, -10%); }
+  20%  { transform: translate(-15%, 5%); }
+  30%  { transform: translate(7%, -25%); }
+  40%  { transform: translate(-5%, 25%); }
+  50%  { transform: translate(-15%, 10%); }
+  60%  { transform: translate(15%, 0%); }
+  70%  { transform: translate(0%, 15%); }
+  80%  { transform: translate(3%, 35%); }
+  90%  { transform: translate(-10%, 10%); }
+}
+
+/* Amber glow pulses */
+@keyframes amber-pulse {
+  0%, 100% { opacity: 0.12; transform: scale(1); }
+  50%       { opacity: 0.22; transform: scale(1.08); }
+}
+
+@keyframes amber-pulse-slow {
+  0%, 100% { opacity: 0.08; transform: scale(1) translateX(-50%); }
+  50%       { opacity: 0.18; transform: scale(1.12) translateX(-50%); }
+}
+
+@keyframes float-up {
+  0%   { transform: translateY(0px); opacity: 0.7; }
+  100% { transform: translateY(-20px); opacity: 0; }
+}
+
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50%       { transform: translateY(8px); opacity: 0.4; }
+}
+
+@keyframes awards-slide {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar        { width: 5px; }
+::-webkit-scrollbar-track  { background: #0D0604; }
+::-webkit-scrollbar-thumb  { background: #C87A14; border-radius: 3px; }
+
+/* Text selection */
+::selection {
+  background: rgba(200, 122, 20, 0.35);
+  color: #F5ECD7;
+}
+
+/* Font helpers */
+.font-serif { font-family: var(--font-playfair), 'Playfair Display', Georgia, serif; }
+.font-sans  { font-family: var(--font-inter), system-ui, sans-serif; }
+
+/* Amber underline decoration */
+.amber-underline {
+  position: relative;
+  display: inline-block;
+}
+.amber-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #C87A14, #E8A820);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.amber-underline:hover::after {
+  transform: scaleX(1);
+}
+
+/* Section separator */
+.section-divider {
+  width: 48px;
+  height: 2px;
+  background: linear-gradient(90deg, #C87A14, #E8A820);
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::after     { animation: none; }
+  *               { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
