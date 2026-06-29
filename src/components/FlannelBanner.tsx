@@ -48,25 +48,25 @@ export default function FlannelBanner() {
             {/* Primary stitching — seam at horizontal join */}
             <line
               x1="0" y1="24" x2="48" y2="24"
-              stroke="rgba(240,228,200,0.55)" strokeWidth="0.9"
+              stroke="rgba(240,228,200,0.9)" strokeWidth="1.2"
               strokeDasharray="3 3"
             />
             {/* Primary stitching — seam at vertical join */}
             <line
               x1="24" y1="0" x2="24" y2="48"
-              stroke="rgba(240,228,200,0.55)" strokeWidth="0.9"
+              stroke="rgba(240,228,200,0.9)" strokeWidth="1.2"
               strokeDasharray="3 3"
             />
 
             {/* Secondary shadow stitch — offset slightly for fabric depth */}
             <line
-              x1="0" y1="25.2" x2="48" y2="25.2"
-              stroke="rgba(240,228,200,0.18)" strokeWidth="0.5"
+              x1="0" y1="25.4" x2="48" y2="25.4"
+              stroke="rgba(240,228,200,0.4)" strokeWidth="0.7"
               strokeDasharray="2 4" strokeDashoffset="2"
             />
             <line
-              x1="25.2" y1="0" x2="25.2" y2="48"
-              stroke="rgba(240,228,200,0.18)" strokeWidth="0.5"
+              x1="25.4" y1="0" x2="25.4" y2="48"
+              stroke="rgba(240,228,200,0.4)" strokeWidth="0.7"
               strokeDasharray="2 4" strokeDashoffset="2"
             />
 
